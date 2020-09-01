@@ -1,7 +1,6 @@
-using System.IO;
-using System.Collections.Generic;
 using System;
-namespace Resources.CSS
+using System.Collections.Generic;
+namespace PA1
 {
     public class Utils
     {
@@ -13,5 +12,6 @@ namespace Resources.CSS
             }
 
         }
+        
     }
 }

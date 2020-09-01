@@ -1,9 +1,7 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
-
-
-namespace Resources.CSS
+namespace PA1
 {
     public class Files
     {
@@ -30,7 +28,7 @@ namespace Resources.CSS
                 string[] temp= line.Split("#");
                  int PostID =int.Parse(temp[0]);
                 
-                baPosts.Add(new posts {PostID = PostID, PostMessage = temp[1], PostTime = DateTime.Parse(temp[2])});
+                baPosts.Add(new Posts {PostID = PostID, PostMessage = temp[1], PostTime = DateTime.Parse(temp[2])});
                
 
                 line=inFile.ReadLine();
@@ -52,6 +50,6 @@ namespace Resources.CSS
             outPostFile.Close();
             return baPosts;
         }
+        
     }
-
 }

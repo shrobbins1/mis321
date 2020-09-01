@@ -1,12 +1,14 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
-namespace CSS
+
+namespace PA1
 {
     class Program
     {
         static void Main(string[] args)
         {
-             List<Posts> baPosts = Files.GetPosts(); 
+            List<Posts> baPosts = Files.GetPosts(); 
              //menu
             Console.WriteLine("1. Show Posts \n 2. Add Post \n Delete Post");
             string userInput = Console.ReadLine();
@@ -16,8 +18,7 @@ namespace CSS
                 if(userInput == "1")
                 {
                     //Show Posts
-                    baPosts.Sort(posts.CompareByDate());
-                    baPosts.Sort((x,y) >= y.PostTime.CompareTo(x.PostTime));
+                    baPosts.Sort(baPosts.CompareByDate);
                     utils.PrintAllPosts(baPosts);
 
                 }
@@ -35,7 +36,6 @@ namespace CSS
 
                 userInput = Console.ReadLine();
             }
-
 
         }
     }

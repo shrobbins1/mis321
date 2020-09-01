@@ -1,38 +1,29 @@
-using System.IO;
 using System;
+using System.IO;
 using System.Collections.Generic;
-
-
-namespace Resources.CSS
+namespace PA1
 {
-
-    public class Posts : IComparable<Posts> 
+    public class Posts: IComparable<Posts>
     {
-        //void IComparable.CompareTo(Posts x, Posts y){}
-        public int PostID { get; set; }
+        public  int PostID { get; set; }
+        public static int numPost{get; set;}
         public string PostMessage { get; set; }
         public DateTime PostTime { get; set; }
         public int Count { get; set; }
-
-        public  int CompareTo(this Posts x)
+        public  int CompareByID(Posts temp)
         {
-            
-            return posts.PostID.CompareTo(x.PostID);
-        }
-        public static int CompareByID(Posts x, Posts y)
-        {
-            return x.PostID.CompareTo(y.PostID);
+            return this.PostID.CompareTo(temp.PostID);
 
         }
-        public static int CompareByDate(Posts x, Posts y)
+        public int CompareByDate(Posts temp)
         {
-            return y.PostTime.CompareTo(x.PostTime);
+            return this.PostTime.CompareTo(temp.PostTime);
         }
 
 
         public override string ToString()
         {
-            return this.PostID + this.PostMessage + "\n   " + this.PostTime;
+            return this.PostID + this.PostMessage + this.PostTime;
         }
 
         public string ToFile()
@@ -40,34 +31,30 @@ namespace Resources.CSS
             return PostID + "#" + PostMessage + "#" + PostTime;
         }
 
-        public void AddPost()
+        public void AddPost( List<Posts> baPosts)
         {
-            List<Posts> baPosts = Files.GetPosts();
-            SetCount(baPosts[baPosts.Count - 1].GetPostID());
-            Count++;
-            string stop = Console.ReadLine();
-            while (stop != "-1")
-            {
-                int postId = GetCount();
-                Console.WriteLine("post ID: " + postId);
+            
+            
+            
+                numPost ++;
+                Console.WriteLine("post ID: " + numPost);
                 Console.WriteLine("Enter Message: ");
                 string message = Console.ReadLine();
                 Console.WriteLine("Enter timestamp of message:");
-                DateTime postTime = Console.ReadLine();
-                Posts newPost = new Posts(PostID = postId, PostMessage = message, PostTime = postTime);
+                DateTime postTime = DateTime.Parse(Console.ReadLine());
+                Posts newPost = new Posts{PostID = numPost, PostMessage = message, PostTime = postTime};
                 baPosts.Add(newPost);
-                IncCount();
-                Files.SavePosts(baPosts);
-                Console.WriteLine("Enter -1 to stop");
-                stop = Console.ReadLine();
+                
+                
+               
 
-            }
+            
 
         }
         public static void DeletePost()
         {
             Console.WriteLine("Enter ID of Post to Delete: ");
-            int deleteID = Console.ReadLine();
+            int deleteID = int.Parse(Console.ReadLine());
             List<Posts> baPosts = Files.GetPosts();
             int foundIndex = baPosts.FindIndex(tempPost => tempPost.PostID == deleteID);
             if (foundIndex != -1)
@@ -77,10 +64,5 @@ namespace Resources.CSS
 
         }
 
-
-
-
     }
-
-
 }
