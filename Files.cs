@@ -14,7 +14,7 @@ namespace PA1
             string line =inFile.ReadLine();
             try 
             {
-                inFile = new StreamReader("post.txt");
+                inFile = new StreamReader("posts.txt");
             }
             catch(FileNotFoundException e)
             {
@@ -33,7 +33,7 @@ namespace PA1
 
                 line=inFile.ReadLine();
 
-
+                Posts.numPost ++;
              }
              inFile.Close();
 

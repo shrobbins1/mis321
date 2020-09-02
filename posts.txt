@@ -1,0 +1,8 @@
+1# Hello, I am Big Al. Roll Tide!#5/1/2020 07:00:00
+2#Roll Tide!#5/9/2020 08:00:00
+3#Happy Summer#6/5/2020 09:00:00
+4#RTR#6/22/2020 09:03:00
+5#Happy 4th of July#7/4/2020 10:00:00
+6#Welome Back!#8/19/2020 11:00:00
+7#Tide Together# 8/22/2020 11:00:00
+8#Wash Your Hands!#8/31/2020 08:00:00

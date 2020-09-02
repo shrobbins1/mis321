@@ -9,30 +9,32 @@ namespace PA1
         static void Main(string[] args)
         {
             List<Posts> baPosts = Files.GetPosts(); 
-             //menu
-            Console.WriteLine("1. Show Posts \n 2. Add Post \n Delete Post");
+            //Menu
+            Console.WriteLine("1. Show Posts \n 2. Add Post \n 3. Delete Post \n Exit");
             string userInput = Console.ReadLine();
             
             while (userInput != "4") 
             {
                 if(userInput == "1")
                 {
-                    //Show Posts
-                    baPosts.Sort(baPosts.CompareByDate);
-                    utils.PrintAllPosts(baPosts);
+                    //Sorts by Date
+                    baPosts.Sort();
+                    //Show Posts 
+                    Utils.PrintAllPosts(baPosts);
 
                 }
                 else if (userInput == "2")
                 {
-                    AddPost(); 
+                    Posts.AddPost(baPosts); 
 
                 }
                 else if (userInput == "3")
                 {
-                    DeletePost();
+                    Posts.DeletePost( baPosts);
                     
 
                 }
+                Console.WriteLine("1. Show Posts \n 2. Add Post \n 3. Delete Post");
 
                 userInput = Console.ReadLine();
             }
